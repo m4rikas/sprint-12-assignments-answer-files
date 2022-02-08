@@ -612,7 +612,7 @@ function calcPageFillRadius(x, y) {
 }
 
 function addClickListeners() {
-  document.addEventListener("touchstart", handleEvent);
+  document.addEventListener("click", handleEvent);
   document.addEventListener("mousedown", handleEvent);
 }
 
@@ -641,7 +641,7 @@ const fillAnimation = anime({
 });
 
 function extend(a, b) {
-  for (var key in b) {
+  for (let key in b) {
     if (b.hasOwnProperty(key)) {
       a[key] = b[key];
     }
@@ -713,11 +713,11 @@ function handleInactiveUser() {
   function clearInactiveTimeout() {
     clearTimeout(inactive);
     document.removeEventListener("mousedown", clearInactiveTimeout);
-    document.removeEventListener("touchstart", clearInactiveTimeout);
+    document.removeEventListener("click", clearInactiveTimeout);
   }
 
   document.addEventListener("mousedown", clearInactiveTimeout);
-  document.addEventListener("touchstart", clearInactiveTimeout);
+  document.addEventListener("click", clearInactiveTimeout);
 }
 
 function startFauxClicking() {
@@ -731,7 +731,7 @@ function startFauxClicking() {
 }
 
 function NoClick(x, y) {
-  var NoClick = new Event("mousedown");
+  let NoClick = new Event("mousedown");
   NoClick.pageX = x;
   NoClick.pageY = y;
   document.dispatchEvent(NoClick);
