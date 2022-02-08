@@ -35,15 +35,11 @@ function calcPageFillRadius(x, y) {
 }
 
 function addClickListeners() {
-  document.addEventListener("touchstart", handleEvent);
+  document.addEventListener("click", handleEvent);
   document.addEventListener("mousedown", handleEvent);
 };
 
 function handleEvent(e) {
-    if (e.touches) { 
-      e.preventDefault();
-      e = e.touches[0];
-    }
     let currentColor = pickColor.current();
     let nextColor = pickColor.next();
     let targetR = calcPageFillRadius(e.pageX, e.pageY);
@@ -89,7 +85,7 @@ function handleEvent(e) {
 
 
 function extend(a, b){
-  for(var key in b) {
+  for(let key in b) {
     if(b.hasOwnProperty(key)) {
       a[key] = b[key];
     }
@@ -161,11 +157,11 @@ function handleInactiveUser() {
   function clearInactiveTimeout() {
     clearTimeout(inactive);
     document.removeEventListener("mousedown", clearInactiveTimeout);
-    document.removeEventListener("touchstart", clearInactiveTimeout);
+    document.removeEventListener("click", clearInactiveTimeout);
   }
   
   document.addEventListener("mousedown", clearInactiveTimeout);
-  document.addEventListener("touchstart", clearInactiveTimeout);
+  document.addEventListener("click", clearInactiveTimeout);
 }
 
 function startFauxClicking() {
