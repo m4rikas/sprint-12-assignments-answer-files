@@ -64,7 +64,7 @@ function handleEvent(e) {
     });
     
 function extend(a, b){
-  for(var key in b) {
+  for(let key in b) {
     if(b.hasOwnProperty(key)) {
       a[key] = b[key];
     }
@@ -72,7 +72,7 @@ function extend(a, b){
   return a;
 }
 
-var resizeCanvas = function() {
+const resizeCanvas = function() {
   canvasW = window.innerWidth;
   canvasH = window.innerHeight;
   canvas1.width = canvasW * devicePixelRatio;
