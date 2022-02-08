@@ -617,10 +617,6 @@ function addClickListeners() {
 }
 
 function handleEvent(e) {
-  // if (e.click) {
-  //   e.preventDefault();
-  //   // e = e.click;
-  // }
   let currentColor = pickColor.current();
   let nextColor = pickColor.next();
   let targetR = calcPageFillRadius(e.pageX, e.pageY);
